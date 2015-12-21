@@ -1,0 +1,4 @@
+[package]
+name = "rusty-flop"
+version = "0.1.0"
+authors = ["Alexander Lim <me@alexanderlim.com>"]
