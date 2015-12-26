@@ -1,8 +1,7 @@
 use std::fmt;
 use std::str;
 
-#[derive(PartialEq)]
-#[derive(Hash)]
+#[derive(Clone, PartialOrd, Ord, PartialEq, Eq, Hash)]
 pub enum Suit {
     Spades,
     Clubs,
@@ -39,10 +38,10 @@ impl fmt::Display for Suit {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}",
             match *self {
-                Suit::Spades    => "s".to_string(),
-                Suit::Clubs     => "c".to_string(),
-                Suit::Hearts    => "h".to_string(),
-                Suit::Diamonds  => "d".to_string(),
+                Suit::Spades    => 's'.to_string(),
+                Suit::Clubs     => 'c'.to_string(),
+                Suit::Hearts    => 'h'.to_string(),
+                Suit::Diamonds  => 'd'.to_string(),
             }
         )
     }

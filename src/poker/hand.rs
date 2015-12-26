@@ -1,8 +1,9 @@
-use std::collections::HashSet;
+use std::collections::BTreeSet;
+use std::iter;
 use super::card::Card;
 
 pub struct Hand {
-    cards: HashSet<Card>,
+    pub cards: BTreeSet<Card>,
 }
 
 impl Hand {
@@ -40,5 +41,11 @@ impl Hand {
 
     pub fn is_straight_flush(&self) -> bool {
         false
+    }
+}
+
+impl iter::FromIterator<Card> for Hand {
+    fn from_iter<T>(iterator: T) -> Self where T: IntoIterator<Item=Card> {
+        Hand {cards: iter::FromIterator::from_iter(iterator)}
     }
 }

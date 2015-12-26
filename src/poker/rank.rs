@@ -1,8 +1,7 @@
 use std::fmt;
 use std::str;
 
-#[derive(PartialEq)]
-#[derive(Hash)]
+#[derive(Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Rank {
     Two = 2,
     Three,
@@ -57,19 +56,19 @@ impl fmt::Display for Rank {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}",
             match *self {
-                Rank::Two   => "2".to_string(),
-                Rank::Three => "3".to_string(),
-                Rank::Four  => "4".to_string(),
-                Rank::Five  => "5".to_string(),
-                Rank::Six   => "6".to_string(),
-                Rank::Seven => "7".to_string(),
-                Rank::Eight => "8".to_string(),
-                Rank::Nine  => "9".to_string(),
-                Rank::Ten   => "T".to_string(),
-                Rank::Jack  => "J".to_string(),
-                Rank::Queen => "Q".to_string(),
-                Rank::King  => "K".to_string(),
-                Rank::Ace   => "A".to_string(),
+                Rank::Two   => '2'.to_string(),
+                Rank::Three => '3'.to_string(),
+                Rank::Four  => '4'.to_string(),
+                Rank::Five  => '5'.to_string(),
+                Rank::Six   => '6'.to_string(),
+                Rank::Seven => '7'.to_string(),
+                Rank::Eight => '8'.to_string(),
+                Rank::Nine  => '9'.to_string(),
+                Rank::Ten   => 'T'.to_string(),
+                Rank::Jack  => 'J'.to_string(),
+                Rank::Queen => 'Q'.to_string(),
+                Rank::King  => 'K'.to_string(),
+                Rank::Ace   => 'A'.to_string(),
                 // Currently fails, need to fix.
                 // For now, we explicitly handle each case.
                 // r       => (r as i32).to_string(),
